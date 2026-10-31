@@ -180,7 +180,7 @@ def name_from_attachment(filename, keywords):
     parsed = name_from_subject(stem, keywords)
     if parsed:
         return parsed
-    # A named submission need not repeat the task keyword: e.g. "5-5 赵瑞芝 12份.xlsx".
+    # A named submission need not repeat the task keyword: e.g. "5-5 周小云 12份.xlsx".
     match = re.fullmatch(r"(?:\d+(?:-\d+)*[\s_-]+)?([\u4e00-\u9fff]{2,4}?)(?:老师)?(?:[\s_-]+\d+份(?:[（(_-].*)?)?", stem.strip())
     name = match[1] if match else ""
     return name if name and name not in _NOT_NAMES and looks_like_name(name) else ""

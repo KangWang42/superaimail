@@ -48,7 +48,7 @@ class AutoCollectTests(FakeWorkerTest):
 
     def test_editing_a_task_never_sends_filed_mail_back_to_pending(self):
         task = self.make_task(roster='')
-        self.ingest(fake_message(91, '照片', sender='钱小林', files=('李雪婉.jpg', '张楠.jpg', '钱小林.jpg')))
+        self.ingest(fake_message(91, '照片', sender='钱小林', files=('林小夏.jpg', '高小宁.jpg', '钱小林.jpg')))
         mid = self.worker.store.messages()[0]['id']
         self.worker.store.execute("INSERT INTO submissions (id, task_id, message_id, person, pending, ignored, manual, reason, flags, received, subject, from_name, from_addr, suggest) VALUES ('s-ai', ?, ?, '钱小林', 0, 0, 0, 'AI 自动收录', '[]', 1, '照片', '钱小林', 'luo@example.test', '钱小林')", (task['id'], mid))
         self.worker.save_task({'id': task['id'], 'rename': 'ai'})

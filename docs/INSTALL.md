@@ -4,7 +4,7 @@
 
 需要 Windows 10/11 x64、系统已有的 .NET Framework 4.8 与 Microsoft Edge WebView2 Runtime。Windows 11 通常已具备 WebView2；缺少时请从[微软官方页面](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)安装，应用不会自动修改系统运行时。
 
-1. 在 [Releases](https://github.com/KangWang42/superaimail/releases) 下载 `SuperAIMail-0.1.0-Windows-Setup.exe`，核对同页 SHA-256。
+1. 在 [Releases](https://github.com/KangWang42/superaimail/releases) 下载 `SuperAIMail-0.1.1-Windows-Setup.exe`，核对同页 SHA-256。
 2. 打开安装器，选择空目录或已有的 SuperAIMail 安装目录。默认 `%LOCALAPPDATA%/Programs/SuperAIMail` 不需要管理员权限。
 3. 从开始菜单打开 SuperAIMail，首次设置工作台密码，再添加邮箱。
 4. 需要与手机共享后台时，在「服务 → 连接本机或共享服务」填写自己部署的 HTTPS 来源地址，重启应用生效；留空恢复本机独立运行。
@@ -17,7 +17,7 @@
 
 需要 Android 8.0+、64 位 ARM 或 x86_64 设备，以及可用的 Android System WebView。APK 同时包含 `arm64-v8a` 和 `x86_64` 的 Python 后台。
 
-1. 从本仓库 Release 下载 `SuperAIMail-0.1.0-Android-universal.apk`，检查校验值。
+1. 从本仓库 Release 下载 `SuperAIMail-0.1.1-Android-universal.apk`，检查校验值。
 2. 按设备系统流程允许当前安装来源并安装。它不是 Google Play 版本。
 3. 首次打开显示「本机独立运行」，创建工作台密码，添加邮箱即可；不需要电脑在线。
 4. 点击顶部「连接设置」，填 HTTPS 服务地址可与电脑共用后台；留空恢复本机。切换连接保留原来的本地数据。

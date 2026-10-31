@@ -50,8 +50,8 @@ AI 默认关闭。没有模型服务或关闭 AI 时，收件、阅读、搜索�
 
 | 设备 | 文件 | 要求 |
 |---|---|---|
-| Windows 电脑 | `SuperAIMail-0.1.0-Windows-Setup.exe` | Windows 10/11 x64、WebView2；内含 Python 后台 |
-| Android 手机 | `SuperAIMail-0.1.0-Android-universal.apk` | Android 8.0+、64 位 ARM / x86_64；内含 Python 后台 |
+| Windows 电脑 | `SuperAIMail-0.1.1-Windows-Setup.exe` | Windows 10/11 x64、WebView2；内含 Python 后台 |
+| Android 手机 | `SuperAIMail-0.1.1-Android-universal.apk` | Android 8.0+、64 位 ARM / x86_64；内含 Python 后台 |
 | 浏览器、iPhone / iPad | 访问自己部署的服务 | iOS 可添加到主屏幕，依赖在线后台 |
 
 **1. 安装并打开，设置工作台密码。** 本机模式的邮件和凭据保存在这台设备。工作台密码保护应用访问，与邮箱授权码不同。

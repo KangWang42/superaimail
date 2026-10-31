@@ -10,7 +10,7 @@ using Microsoft.Win32;
 
 namespace SuperAIMailInstaller {
 static class Setup {
-    const string Name = "SuperAIMail", Version = "0.1.0";
+    const string Name = "SuperAIMail", Version = "0.1.1";
     static readonly bool Sandbox = Environment.GetEnvironmentVariable("SUPERMAIL_SETUP_SANDBOX") == "1";
     static string Key { get { return @"Software\Microsoft\Windows\CurrentVersion\Uninstall\SuperAIMail" + (Sandbox ? "-Sandbox" : ""); } }
     static string Link { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Programs), Name + (Sandbox ? " sandbox" : "") + ".lnk"); } }

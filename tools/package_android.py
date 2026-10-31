@@ -11,6 +11,8 @@ import urllib.request
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from superaimail import __version__
 GRADLE = "8.13"
 
 
@@ -70,7 +72,7 @@ def main():
     if args.connected_test: return
     flavor = "debug" if args.debug else "release"
     apk = ROOT / ("android/app/build/outputs/apk/%s/app-%s.apk" % (flavor, flavor))
-    output = ROOT / ("dist/SuperAIMail-0.1.0-Android-%s.apk" % ("debug" if args.debug else "universal"))
+    output = ROOT / ("dist/SuperAIMail-%s-Android-%s.apk" % (__version__, "debug" if args.debug else "universal"))
     output.parent.mkdir(exist_ok=True)
     shutil.copy2(apk, output)
     print(output.name, output.stat().st_size, hashlib.sha256(output.read_bytes()).hexdigest())
