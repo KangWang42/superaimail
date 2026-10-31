@@ -31,9 +31,9 @@ SuperAIMail 通过 IMAP TLS 收件，通过 SMTP TLS / STARTTLS 发信。邮箱�
 
 ### QQ / Foxmail
 
-登录 QQ 邮箱网页，在设置中的「账号」或「账号与安全」找到 IMAP/SMTP / 第三方服务。完成手机验证后开启服务并生成授权码。在应用中填授权码，不能填 QQ 登录密码。Foxmail 地址也使用 QQ 服务器，登录名填完整 Foxmail 地址。企业微信邮箱的服务器与个人 QQ 不同，应按企业邮箱的说明手动填写。
+登录 QQ 邮箱网页，点击右上角头像，进入「设置 → 账号与安全 → 安全设置」。开启 POP3/IMAP/SMTP 服务，点击「生成授权码」，按页面要求使用 QQ 密码或手机 QQ 扫码验证身份。在 SuperAIMail 中填生成的 16 位授权码。Foxmail 地址也使用 QQ 服务器，登录名填完整 Foxmail 地址。企业微信邮箱的服务器与个人 QQ 不同，应按企业邮箱的说明手动填写。
 
-参考：[QQ 授权码帮助](https://help.mail.qq.com/detail/106/985)、[腾讯云邮件连接器说明](https://cloud.tencent.com/document/product/1270/51374)。界面入口可能调整，以账号实际页面为准。
+参考：[QQ 官方授权码教程](https://help.mail.qq.com/detail/106/985)。可以在「账号与安全 → 设备管理 → 授权码管理」撤销不再使用的授权码；界面入口以账号实际页面为准。
 
 ### 163 / 126 / yeah
 

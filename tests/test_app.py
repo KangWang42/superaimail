@@ -76,13 +76,28 @@ class ApplicationTests(unittest.TestCase):
         self.assertEqual(code, 200)
         self.assertNotIn(b"fixture-secret", body)
         self.assertFalse(json.loads(body)["ai"]["enabled"])
-        self.assertEqual(self.request("/api/overview", headers={"If-None-Match": headers["ETag"]})[0], 304)
         code, _, body = self.request("/api/message?id=fixture-message")
         self.assertEqual(code, 200)
         self.assertEqual(json.loads(body)["text"], "会议安排在周五下午。")
         code, _, body = self.request("/api/action", {"action": "ai_summarize", "id": "fixture-message"})
         self.assertEqual(code, 400)
         self.assertIn("AI", json.loads(body)["error"])
+
+    def test_message_list_etag_is_reused_and_invalidated_after_edit(self):
+        self.login()
+        code, headers, body = self.request("/api/messages")
+        self.assertEqual(code, 200)
+        self.assertEqual(json.loads(body)["messages"][0]["starred"], 0)
+        etag = headers["ETag"]
+        self.assertEqual(self.request("/api/messages", headers={"If-None-Match": etag})[0], 304)
+        try:
+            self.assertEqual(self.request("/api/action", {"action": "message_mark", "id": "fixture-message", "starred": True})[0], 200)
+            code, changed_headers, body = self.request("/api/messages", headers={"If-None-Match": etag})
+            self.assertEqual(code, 200)
+            self.assertNotEqual(changed_headers["ETag"], etag)
+            self.assertEqual(json.loads(body)["messages"][0]["starred"], 1)
+        finally:
+            self.app.worker.store.update_message("fixture-message", starred=0)
 
     def test_public_static_files_and_path_traversal(self):
         self.assertEqual(self.request("/")[0], 200)
