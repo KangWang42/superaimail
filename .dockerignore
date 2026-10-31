@@ -1,0 +1,12 @@
+.git
+.venv
+.build
+build
+dist
+data
+secrets
+.local-secrets
+.env
+**/__pycache__
+android
+tests

@@ -1,0 +1,23 @@
+[Unit]
+Description=SuperAIMail personal mail workspace
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=superaimail
+Group=superaimail
+WorkingDirectory=/opt/superaimail
+ExecStart=/opt/superaimail/.venv/bin/python -m superaimail --data /var/lib/superaimail --host 127.0.0.1 --port 8787 --public-url https://mail.example.com --no-browser
+Restart=on-failure
+RestartSec=5
+UMask=0077
+StateDirectory=superaimail
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/superaimail
+
+[Install]
+WantedBy=multi-user.target

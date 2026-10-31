@@ -1,0 +1,16 @@
+services:
+  superaimail:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      SUPERMAIL_PUBLIC_URL: ${SUPERMAIL_PUBLIC_URL:-http://localhost:8787}
+      SUPERMAIL_PASSWORD_FILE: /run/secrets/workspace-password
+    volumes:
+      - ./data:/data
+    secrets:
+      - workspace-password
+secrets:
+  workspace-password:
+    file: ./secrets/workspace-password
